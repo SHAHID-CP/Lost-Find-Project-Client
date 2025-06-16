@@ -10,6 +10,7 @@ import PostDetails from "../Pages/PostDetails";
 import MyItem from "../Pages/MyItem";
 import UpdateItems from "../Pages/UpdateItems";
 import AllRecovered from "../Pages/AllRecovered";
+import PrivateRoute from "../Private/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -35,23 +36,23 @@ const router = createBrowserRouter([
             },
             {
                 path: '/items/:id',
-                element: <PostDetails></PostDetails>,
+                element: <PrivateRoute><PostDetails></PostDetails></PrivateRoute>,
             },
             {
                 path: '/addItems',
-                element: <Additems></Additems>,
+                element: <PrivateRoute><Additems></Additems></PrivateRoute>,
             },
             {
                 path: '/allrecovered',
-                element: <AllRecovered></AllRecovered>,
+                element: <PrivateRoute><AllRecovered></AllRecovered></PrivateRoute>,
             },
             {
                 path: '/myItems',
-                element: <MyItem></MyItem>,
+                element: <PrivateRoute><MyItem></MyItem></PrivateRoute>,
             },
             {
                 path: '/updateItems/:id',
-                element: <UpdateItems></UpdateItems>,
+                element: <PrivateRoute><UpdateItems></UpdateItems></PrivateRoute>,
             },
         ]
     },

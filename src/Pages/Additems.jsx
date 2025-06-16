@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import useAuth from '../Hooks/useAuth';
 
 const Additems = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const {user} =useAuth();
+    console.log(user);
 
     const hundleItem= e =>{
         e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        const {useremail,username,...newPost} = data;
+        newPost.contact = {useremail,username} ;
+        newPost.date = selectedDate.toLocaleDateString() ;
+        console.log(newPost);
+
+
+
+
+
+
     }
     return (
         <div className='mb-32'>
@@ -79,11 +96,11 @@ const Additems = () => {
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                             <fieldset className="fieldset  p-2">
                             <label className="label">Display Name</label>
-                            <input type="text" name='username' className="input w-full" placeholder="User Name" required/>
+                            <input defaultValue={user?.displayName} type="text" name='username' className="input w-full" placeholder="User Name" required/>
                             </fieldset>
                             <fieldset className="fieldset  p-2">
                             <label className="label">Email</label>
-                            <input type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
+                            <input defaultValue={user?.email} type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
                             </fieldset>
                         </div>
                     </div>

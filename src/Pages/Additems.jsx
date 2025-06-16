@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from '../Hooks/useAuth';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Additems = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -18,7 +20,17 @@ const Additems = () => {
         newPost.date = selectedDate.toLocaleDateString() ;
         console.log(newPost);
 
-
+        axios.post('http://localhost:3000/addItem',newPost,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+        .then(res=>{
+            if(res.data.insertedId){
+                e.target.reset()
+                toast("Item add successfully");
+            }
+        })
 
 
 
@@ -51,7 +63,7 @@ const Additems = () => {
 
                     <fieldset className="fieldset  p-2">
                         <label className="label">Photo Url</label>
-                        <input type="text" name='photUrl' className="input w-full" placeholder="Photo url" required />
+                        <input type="url" name='photUrl' className="input w-full" placeholder="Photo url" required />
                     </fieldset>
                     <fieldset className="fieldset  p-2">
                         <label className="label">Title</label>

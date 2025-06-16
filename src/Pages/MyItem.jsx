@@ -2,8 +2,37 @@ import React from 'react';
 import { GrUpdate } from 'react-icons/gr';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const MyItem = () => {
+
+
+
+
+
+
+    const hundleDelete= (id)=>{
+
+
+        Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+                });
+            }
+            });
+
+    }
     return (
         <div>
              <h2 className="text-3xl text-center font-bold my-8">Manage My Item </h2>
@@ -38,7 +67,7 @@ const MyItem = () => {
                                 <td>jahid@gmail.com</td>
                                 <td>
                                     <Link to={`/updateItems/2`} ><button className='cursor-pointer mr-8'><GrUpdate color='green'/></button></Link>
-                                    <button className='cursor-pointer'><MdDeleteForever  color='red' size={22}/></button>
+                                    <button onClick={()=>hundleDelete(2)} className='cursor-pointer'><MdDeleteForever  color='red' size={22}/></button>
                                 </td>
                             </tr>
                             

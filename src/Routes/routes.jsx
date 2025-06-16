@@ -7,6 +7,8 @@ import Home from "../Component/Home/Home";
 import Allitems from "../Pages/Allitems";
 import Additems from "../Pages/Additems";
 import PostDetails from "../Pages/PostDetails";
+import MyItem from "../Pages/MyItem";
+import UpdateItems from "../Pages/UpdateItems";
 
 const router = createBrowserRouter([
     {
@@ -43,8 +45,12 @@ const router = createBrowserRouter([
                 element: <p>all recoverde item</p>,
             },
             {
-                path: '/manageitem',
-                element: <p>manage my item</p>,
+                path: '/myItems',
+                element: <MyItem></MyItem>,
+            },
+            {
+                path: '/updateItems/:id',
+                element: <UpdateItems></UpdateItems>,
             },
         ]
     },

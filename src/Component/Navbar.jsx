@@ -139,7 +139,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/manageitem' >
+                        <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/myItems' >
                         Manage My Items
                         </NavLink>
                     </li>

@@ -6,8 +6,7 @@ import useAuth from '../Hooks/useAuth';
 const Additems = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const {user} =useAuth();
-    console.log(user);
-
+    
     const hundleItem= e =>{
         e.preventDefault();
         const form = e.target;

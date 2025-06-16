@@ -9,6 +9,7 @@ import Additems from "../Pages/Additems";
 import PostDetails from "../Pages/PostDetails";
 import MyItem from "../Pages/MyItem";
 import UpdateItems from "../Pages/UpdateItems";
+import AllRecovered from "../Pages/AllRecovered";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allrecovered',
-                element: <p>all recoverde item</p>,
+                element: <AllRecovered></AllRecovered>,
             },
             {
                 path: '/myItems',

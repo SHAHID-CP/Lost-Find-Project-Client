@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Home from "../Component/Home/Home";
 import Allitems from "../Pages/Allitems";
 import Additems from "../Pages/Additems";
+import PostDetails from "../Pages/PostDetails";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/items/:id',
-                element: <p>Exact one item details</p>
+                element: <PostDetails></PostDetails>,
             },
             {
                 path: '/addItems',

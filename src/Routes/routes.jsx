@@ -11,6 +11,7 @@ import MyItem from "../Pages/MyItem";
 import UpdateItems from "../Pages/UpdateItems";
 import AllRecovered from "../Pages/AllRecovered";
 import PrivateRoute from "../Private/PrivateRoute";
+import LoadingEle from "../Component/LoadingEle";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allItems',
+                hydrateFallbackElement: <LoadingEle></LoadingEle> ,
+                loader: ()=> fetch('http://localhost:3000/item'),
                 element: <Allitems></Allitems>,
             },
             {

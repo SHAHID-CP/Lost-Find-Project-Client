@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import LoadingEle from '../Component/LoadingEle';
 import ErrorPage from './ErrorPage';
+import { toast } from 'react-toastify';
 
 const PostDetails = () => {
         const {id}= useParams();
@@ -28,8 +29,7 @@ const PostDetails = () => {
 
         const {_id,titlee,photUrl,location,description,date,status,contact,category} = data || {};
 
-
-        const [selectedDate, setSelectedDate] = useState(new Date(date));
+        const [selectedDate, setSelectedDate] = useState(new Date());
         const [selectedDated, setSelectedDated] = useState(new Date());
         const {user} =useAuth();
 
@@ -42,10 +42,28 @@ const PostDetails = () => {
         const {status,useremail,username,recoveredUsername,recoveredUseremail,...newPost} = data;
         newPost.contact = {useremail,username} ;
         newPost.recoverContact = {recoveredUseremail,recoveredUsername} ;
-        newPost.date = selectedDate.toLocaleDateString() ;
         newPost.recoveredDate = selectedDated.toLocaleDateString() ;
+        newPost.date = selectedDate.toLocaleDateString() ;
+        
         newPost.status='Recovered';
+        const update= {status:newPost.status};
         console.log(newPost);
+        axios.post('http://localhost:3000/addRecover',newPost,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+        .then(res=>{
+            if(res.data.insertedId){
+                e.target.reset()
+                toast("Item Recovered successfully");
+                axios.patch(`http://localhost:3000/item/${_id}`,update,{
+                        headers: {
+                        Authorization: `Bearer ${user?.accessToken}`
+                        }
+                })
+            }
+        })
 
 
 

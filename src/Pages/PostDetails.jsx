@@ -2,15 +2,34 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from '../Hooks/useAuth';
-
+import { useQuery } from '@tanstack/react-query'
 import { CiCalendarDate } from 'react-icons/ci';
 import { FaRegUser, FaTag } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineEmail } from 'react-icons/md';
+import axios from 'axios';
+import { useParams } from 'react-router';
+import LoadingEle from '../Component/LoadingEle';
+import ErrorPage from './ErrorPage';
 
 const PostDetails = () => {
+        const {id}= useParams();
+        const { isPending, isError, data } = useQuery({
+        queryKey: ['singleItem'],
+        queryFn: async ()=>{
+            const res= await axios.get(`http://localhost:3000/item/${id}`,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+            return res.data;
+        },
+        })
 
-        const [selectedDate, setSelectedDate] = useState(new Date("2025-01-15"));
+        const {_id,titlee,photUrl,location,description,date,status,contact,category} = data || {};
+
+
+        const [selectedDate, setSelectedDate] = useState(new Date(date));
         const [selectedDated, setSelectedDated] = useState(new Date());
         const {user} =useAuth();
 
@@ -20,11 +39,12 @@ const PostDetails = () => {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         
-        const {useremail,username,recoveredUsername,recoveredUseremail,...newPost} = data;
+        const {status,useremail,username,recoveredUsername,recoveredUseremail,...newPost} = data;
         newPost.contact = {useremail,username} ;
         newPost.recoverContact = {recoveredUseremail,recoveredUsername} ;
         newPost.date = selectedDate.toLocaleDateString() ;
         newPost.recoveredDate = selectedDated.toLocaleDateString() ;
+        newPost.status='Recovered';
         console.log(newPost);
 
 
@@ -35,16 +55,13 @@ const PostDetails = () => {
     }
 
 
+    if(isPending){
+        return <LoadingEle></LoadingEle>
+    }
+    if(isError){
+        return <ErrorPage></ErrorPage>
+    }
 
-
-
-
-
-
-
-
-
-    const status='Lost';
     return (
         <div className='my-14'>
             
@@ -53,33 +70,33 @@ const PostDetails = () => {
             <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-end md:w-10/12 mx-auto'>
 
                         <div className='sm:w-1/2'>
-                                <img className='w-full max-h-48 sm:max-h-80 rounded-2xl ' src='https://i.ibb.co/zhmZR4Yp/istockphoto-613666608-612x612.jpg' alt="None" />
+                                <img className='w-full max-h-48 sm:max-h-80 rounded-2xl ' src={photUrl} alt="None" />
                         </div>
                         <div className='mt-2 sm:w-1/2 sm:ml-4'>
-                            <p className={`max-w-fit text-xs font-semibold text-white px-3 py-1 rounded-2xl ${status == "Lost" ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"}`}>lost</p>
-                            <h3 className='text-xl font-bold mb-4 mt-2'>Some Title</h3>
+                            <p className={`max-w-fit text-xs font-semibold text-white px-3 py-1 rounded-2xl ${status == "Lost" ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"}`}>{status}</p>
+                            <h3 className='text-xl font-bold mb-4 mt-2'>{titlee}</h3>
 
                             <div className='mb-2 text-sm font-semibold flex items-center gap-1'>
-                                <FaTag /><p>Document type:</p>
+                                <FaTag /><p>{category}</p>
                             </div>
 
                             <div className='mb-2 pl-2 text-xs font-semibold '>
-                                Description
+                                {description}
                             </div>
                             <div className='mb-2 text-sm font-semibold flex items-center gap-1'>
-                                <FaLocationDot /> <p>Dhaka,rajshahi</p>
+                                <FaLocationDot /> <p>{location}</p>
                             </div>
                             <div className='mb-2  text-sm font-semibold flex items-center gap-1'>
-                                <CiCalendarDate /> <p>17/12/23</p>
+                                <CiCalendarDate /> <p>{date}</p>
                             </div>
 
                             <div className='mb-4 pt-4 text-sm font-semibold border-t-1 border-gray-300 border-dashed'>
                                 Contact Information
                                 <div className='text-xs pl-2 mb-1 flex items-center gap-1'>
-                                    <FaRegUser /><p >jahid babu</p>
+                                    <FaRegUser /><p >{contact.username}</p>
                                 </div>
                                 <div className='text-xs pl-2 mb-1 flex items-center gap-1'>
-                                    <MdOutlineEmail /><p>jahid@gamil.com</p>
+                                    <MdOutlineEmail /><p>{contact.useremail}</p>
                                 </div>
                                 
                             </div>
@@ -126,7 +143,7 @@ const PostDetails = () => {
                             
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Select Post Type</label>
-                                                    <select className='bg-white p-2 rounded-l-sm' name='status' required>
+                                                    <select defaultValue={status} className='bg-white p-2 rounded-l-sm' name='status' required>
                                                             <option value="Lost">Lost</option>
                                                             <option value="Found">Found</option>
                                                     </select>
@@ -135,17 +152,17 @@ const PostDetails = () => {
                             
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Photo Url</label>
-                                                    <input type="text" name='photUrl' className="input w-full" placeholder="Photo url" required />
+                                                    <input defaultValue={photUrl} type="url" name='photUrl' className="input w-full" placeholder="Photo url" required />
                                                 </fieldset>
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Title</label>
-                                                    <input type="text" name='titlee' className="input w-full" placeholder="Title" required />
+                                                    <input defaultValue={titlee} type="text" name='titlee' className="input w-full" placeholder="Title" required />
                                                 </fieldset>
                             
                             
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Description</label>
-                                                    <textarea name='description' placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 bg-white min-h-[60px] border-1 border-gray-300" required></textarea>
+                                                    <textarea defaultValue={description} name='description' placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 bg-white min-h-[60px] border-1 border-gray-300" required></textarea>
                                                 </fieldset>
                             
                             
@@ -153,7 +170,7 @@ const PostDetails = () => {
                             
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Select Category</label>
-                                                    <select className='bg-white p-2 rounded-l-sm' name='category' required>
+                                                    <select defaultValue={category} className='bg-white p-2 rounded-l-sm' name='category' required>
                                                             <option value="Pets">Pets</option>
                                                             <option value="Documents">Documents</option>
                                                             <option value="Gadgets">Gadgets</option>
@@ -163,7 +180,7 @@ const PostDetails = () => {
                             
                                                 <fieldset className="fieldset  p-2">
                                                     <label className="label">Location</label>
-                                                    <input type="text" name='location' className="input w-full" placeholder="Location" required/>
+                                                    <input defaultValue={location} type="text" name='location' className="input w-full" placeholder="Location" required/>
                                                 </fieldset>
                             
                                                 <div className=" p-2">
@@ -179,11 +196,11 @@ const PostDetails = () => {
                                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                                                         <fieldset className="fieldset  p-2">
                                                         <label className="label">Display Name</label>
-                                                        <input defaultValue={user?.displayName} type="text" name='username' className="input w-full" placeholder="User Name" required/>
+                                                        <input defaultValue={contact.username} type="text" name='username' className="input w-full" placeholder="User Name" required/>
                                                         </fieldset>
                                                         <fieldset className="fieldset  p-2">
                                                         <label className="label">Email</label>
-                                                        <input defaultValue={user?.email} type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
+                                                        <input defaultValue={contact.useremail} type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
                                                         </fieldset>
                                                     </div>
                                                 </div>

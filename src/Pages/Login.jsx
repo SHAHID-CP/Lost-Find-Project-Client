@@ -38,6 +38,7 @@ const Login = () => {
 
     return (
         <div className="card bg-gray-300 w-full mx-auto mt-20 max-w-sm shrink-0 shadow-2xl border-2 mb-24 border-orange-600">
+            <title>Login</title>
             <h3 className="text-3xl text-center font-bold">Login now</h3>
             <div className="card-body">
                 <form onSubmit={hundleLogin}  className="fieldset">

@@ -43,11 +43,12 @@ const PostDetails = () => {
         newPost.contact = {useremail,username} ;
         newPost.recoverContact = {recoveredUseremail,recoveredUsername} ;
         newPost.recoveredDate = selectedDated.toLocaleDateString() ;
+        
         newPost.date = selectedDate.toLocaleDateString() ;
         
         newPost.status='Recovered';
         const update= {status:newPost.status};
-        console.log(newPost);
+        
         axios.post('http://localhost:3000/addRecover',newPost,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
@@ -82,7 +83,7 @@ const PostDetails = () => {
 
     return (
         <div className='my-14'>
-            
+            <title>Update Item</title>
             <h2 className='text-2xl font-bold text-center mb-8 text-green-400'>Post Details</h2>
 
             <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-end md:w-10/12 mx-auto'>
@@ -203,7 +204,7 @@ const PostDetails = () => {
                             
                                                 <div className=" p-2">
                                                 <label className="label block mb-1 text-xs">Date Lost/Found</label>
-                                                <DatePicker className='bg-white p-1 rounded-md'
+                                                <DatePicker value={date} className='bg-white p-1 rounded-md'
                                                 selected={selectedDate}
                                                 onChange={(date) => setSelectedDate(date)}
                                                 />

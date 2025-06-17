@@ -2,10 +2,29 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from '../Hooks/useAuth';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useParams } from 'react-router';
+import LoadingEle from '../Component/LoadingEle';
+import ErrorPage from './ErrorPage';
+import { toast } from 'react-toastify';
 
 const UpdateItems = () => {
+        const {id}= useParams();
+        const { isPending, isError, data } = useQuery({
+        queryKey: ['upItem'],
+        queryFn: async ()=>{
+            const res= await axios.get(`http://localhost:3000/item/${id}`,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+            return res.data;
+        },
+        })
 
-    const [selectedDate, setSelectedDate] = useState(new Date("2025-01-15"));
+
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const {user} =useAuth();
 
     const hundleItem= e =>{
@@ -17,9 +36,18 @@ const UpdateItems = () => {
         const {useremail,username,...newPost} = data;
         newPost.contact = {useremail,username} ;
         newPost.date = selectedDate.toLocaleDateString() ;
-        console.log(newPost);
+        
 
-
+        axios.put(`http://localhost:3000/addupdate/${id}`,newPost,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+        .then(res=>{
+            if(res.data.modifiedCount){
+                toast("Update successfully!")
+            }
+        })
 
 
 
@@ -29,11 +57,16 @@ const UpdateItems = () => {
 
 
 
-
+    if(isPending){
+        return <LoadingEle></LoadingEle>
+    }
+    if(isError){
+        return <ErrorPage></ErrorPage>
+    }
 
     return (
         <div className='mb-32'>
-                    
+                 <title>Update your Item</title>   
                 <div className="px-6 py-4 border-b border-gray-200">
                     <h1 className="text-2xl font-bold text-center text-gray-900">Update Lost or Found Item</h1>
                 </div>
@@ -46,7 +79,7 @@ const UpdateItems = () => {
         
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Select Post Type</label>
-                                <select className='bg-white p-2 rounded-l-sm' name='status' required>
+                                <select defaultValue={data?.status} className='bg-white p-2 rounded-l-sm' name='status' required>
                                         <option value="Lost">Lost</option>
                                         <option value="Found">Found</option>
                                 </select>
@@ -55,17 +88,17 @@ const UpdateItems = () => {
         
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Photo Url</label>
-                                <input type="text" name='photUrl' className="input w-full" placeholder="Photo url" required />
+                                <input defaultValue={data?.photUrl} type="url" name='photUrl' className="input w-full" placeholder="Photo url" required />
                             </fieldset>
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Title</label>
-                                <input type="text" name='titlee' className="input w-full" placeholder="Title" required />
+                                <input defaultValue={data?.titlee} type="text" name='titlee' className="input w-full" placeholder="Title" required />
                             </fieldset>
         
         
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Description</label>
-                                <textarea name='description' placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 bg-white min-h-[60px] border-1 border-gray-300" required></textarea>
+                                <textarea defaultValue={data?.description} name='description' placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 bg-white min-h-[60px] border-1 border-gray-300" required></textarea>
                             </fieldset>
         
         
@@ -73,7 +106,7 @@ const UpdateItems = () => {
         
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Select Category</label>
-                                <select className='bg-white p-2 rounded-l-sm' name='category' required>
+                                <select defaultValue={data?.category} className='bg-white p-2 rounded-l-sm' name='category' required>
                                         <option value="Pets">Pets</option>
                                         <option value="Documents">Documents</option>
                                         <option value="Gadgets">Gadgets</option>
@@ -83,12 +116,12 @@ const UpdateItems = () => {
         
                             <fieldset className="fieldset  p-2">
                                 <label className="label">Location</label>
-                                <input type="text" name='location' className="input w-full" placeholder="Location" required/>
+                                <input defaultValue={data?.location} type="text" name='location' className="input w-full" placeholder="Location" required/>
                             </fieldset>
         
                             <div className=" p-2">
                             <label className="label block mb-1 text-xs">Date Lost/Found</label>
-                            <DatePicker className='bg-white p-1 rounded-md'
+                            <DatePicker value={data?.date} className='bg-white p-1 rounded-md'
                             selected={selectedDate}
                             onChange={(date) => setSelectedDate(date)}
                             />

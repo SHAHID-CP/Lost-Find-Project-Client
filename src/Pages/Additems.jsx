@@ -18,7 +18,7 @@ const Additems = () => {
         const {useremail,username,...newPost} = data;
         newPost.contact = {useremail,username} ;
         newPost.date = selectedDate.toLocaleDateString() ;
-        console.log(newPost);
+        
 
         axios.post('http://localhost:3000/addItem',newPost,{
             headers: {
@@ -38,7 +38,7 @@ const Additems = () => {
     }
     return (
         <div className='mb-32'>
-            
+         <title>Add Item</title>   
         <div className="px-6 py-4 border-b border-gray-200">
             <h1 className="text-2xl font-bold text-center text-gray-900">Submit Lost or Found Item</h1>
             <p className="text-center text-gray-600 mt-2">

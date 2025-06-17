@@ -1,13 +1,14 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import { motion } from "motion/react"
 
 const Carosel = () => {
     return (
     <div className='pt-8 bg-gray-800 mb-12'>
     <div className="carousel w-full ">
     <div id="slide1" className="carousel-item relative w-full ">
-        <p className='w-1/2 pl-8 sm:pl-16  flex justify-center items-center text-white font-bold sm:text-3xl'>Join thousands of people who have successfully reunited with their lost belongings through our platform.</p>
+        <motion.p animate={{color:['#6c5ce7','#fd79a8','#e84393'],transition: {duration: 4, repeat:Infinity}}} className='w-1/2 pl-8 sm:pl-16  flex justify-center items-center text-white font-bold sm:text-3xl'>Join thousands of people who have successfully reunited with their lost belongings through our platform.</motion.p>
     <img
         src="https://i.ibb.co/6cddyK5W/im2.jpg"
         className="w-1/2 rounded-tl-full " />
@@ -19,7 +20,7 @@ const Carosel = () => {
 
 
     <div id="slide2" className="carousel-item relative w-full">
-    <p className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl sm:pl-16 pl-8'>Be a hero in someone's story by reporting found items and helping reunite them with their owners.</p>
+    <motion.p animate={{color:['#6c5ce7','#fd79a8','#e84393'],transition: {duration: 4, repeat:Infinity}}} className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl sm:pl-16 pl-8'>Be a hero in someone's story by reporting found items and helping reunite them with their owners.</motion.p>
     <img
         src="https://i.ibb.co/WN5Bzwdn/im3.png"
         className="w-1/2 rounded-tl-full " />
@@ -31,7 +32,7 @@ const Carosel = () => {
 
 
     <div id="slide3" className="carousel-item relative w-full">
-    <p className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl pl-8 sm:pl-16'>people who have successfully reunited with their lost belongings through our platform.</p>
+    <motion.p animate={{color:['#6c5ce7','#fd79a8','#e84393'],transition: {duration: 4, repeat:Infinity}}} className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl pl-8 sm:pl-16'>people who have successfully reunited with their lost belongings through our platform.</motion.p>
     <img
         src="https://i.ibb.co/3bSVSVw/im4.jpg"
         className="w-1/2 rounded-tl-full " />
@@ -43,7 +44,7 @@ const Carosel = () => {
 
 
     <div id="slide4" className="carousel-item relative w-full">
-    <p className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl pl-8 sm:pl-16'>we've helped thousands of people reconnect with what matters most.</p>
+    <motion.p animate={{color:['#6c5ce7','#fd79a8','#e84393'],transition: {duration: 4, repeat:Infinity}}} className='w-1/2 flex justify-center items-center text-white font-bold sm:text-3xl pl-8 sm:pl-16'>we've helped thousands of people reconnect with what matters most.</motion.p>
     <img
         src="https://i.ibb.co/v4hvmrZh/im1.jpg"
         className="w-1/2 rounded-tl-full " />

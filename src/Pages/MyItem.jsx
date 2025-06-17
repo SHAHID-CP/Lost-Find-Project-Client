@@ -1,13 +1,40 @@
 import React from 'react';
+import { useQuery } from '@tanstack/react-query'
 import { GrUpdate } from 'react-icons/gr';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import useAuth from '../Hooks/useAuth';
+import LoadingEle from '../Component/LoadingEle';
+import ErrorPage from './ErrorPage';
+
 
 const MyItem = () => {
 
+        const {user} =useAuth();
+        const { isPending, isError, data } = useQuery({
+        queryKey: ['manageItem'],
+        queryFn: async ()=>{
+            const res= await axios.get(`http://localhost:3000/myItem?email=${user?.email}`,{
+            headers: {
+                Authorization: `Bearer ${user?.accessToken}`
+            }
+        })
+            return res.data;
+        },
+        })
 
-
+    if(isPending){
+        return <LoadingEle></LoadingEle>
+    }
+    if(isError){
+        return <ErrorPage></ErrorPage>
+    }
+    if(data.length === 0){
+        return <p className='text-5xl text-center font-bold mt-24'>No Manage Data</p>
+    }
+  
 
 
 
@@ -24,18 +51,31 @@ const MyItem = () => {
         confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success"
-                });
+
+                axios.delete(`http://localhost:3000/itemdel/${id}`,{
+                    headers: {
+                    Authorization: `Bearer ${user?.accessToken}`
+                    }
+                })
+                .then(res=>{
+                    if(res.data.deletedCount){
+                        Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                        });
+                    }
+                })
+
+                
             }
             });
 
     }
     return (
         <div>
-             <h2 className="text-3xl text-center font-bold my-8">Manage My Item </h2>
+            <title>My Item</title>
+            <h2 className="text-3xl text-center font-bold my-8">Manage My Item </h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -52,24 +92,26 @@ const MyItem = () => {
                     <tbody>
                         {/* rows */}
                         
-                            <tr>
-                                <th>1</th>
+                            {
+                                data.map((singleItem,index)=><tr key={index}>
+                                <th>{index+1}</th>
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle h-12 w-12">
-                                        <img src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="Avatar Tailwind CSS Component" />
+                                        <img src={singleItem?.photUrl} alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div>
                                 </td>
-                                <td>item title</td>
+                                <td>{singleItem?.titlee}</td>
                                 
-                                <td>item dedline</td>
-                                <td>jahid@gmail.com</td>
+                                <td>{singleItem?.date}</td>
+                                <td>{singleItem?.contact?.useremail}</td>
                                 <td>
-                                    <Link to={`/updateItems/2`} ><button className='cursor-pointer mr-8'><GrUpdate color='green'/></button></Link>
-                                    <button onClick={()=>hundleDelete(2)} className='cursor-pointer'><MdDeleteForever  color='red' size={22}/></button>
+                                    <Link to={`/updateItems/${singleItem?._id}`} ><button className='cursor-pointer mr-8'><GrUpdate color='green'/></button></Link>
+                                    <button onClick={()=>hundleDelete(singleItem._id)} className='cursor-pointer'><MdDeleteForever  color='red' size={22}/></button>
                                 </td>
-                            </tr>
+                            </tr>)
+                            }
                             
                     </tbody>
                 </table>

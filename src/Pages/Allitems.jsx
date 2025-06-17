@@ -7,6 +7,7 @@ const Allitems = () => {
     const [item,setItem] = useState(data);
     return (
         <div className="max-w-7xl mx-auto my-12">
+            <title>All Item</title>
             <h2 className="text-4xl font-bold mb-8 text-center">All Lost & Found Items</h2>
             
             <div className='mb-12 flex justify-center'>

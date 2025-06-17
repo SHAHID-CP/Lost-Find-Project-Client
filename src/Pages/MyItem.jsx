@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { GrUpdate } from 'react-icons/gr';
 import { MdDeleteForever } from 'react-icons/md';
@@ -11,12 +11,12 @@ import ErrorPage from './ErrorPage';
 
 
 const MyItem = () => {
-
+        
         const {user} =useAuth();
         const { isPending, isError, data } = useQuery({
         queryKey: ['manageItem'],
         queryFn: async ()=>{
-            const res= await axios.get(`http://localhost:3000/myItem?email=${user?.email}`,{
+            const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/myItem?email=${user?.email}`,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }
@@ -35,7 +35,7 @@ const MyItem = () => {
         return <p className='text-5xl text-center font-bold mt-24'>No Manage Data</p>
     }
   
-
+    const [datas,setdatas] =useState(data);
 
 
     const hundleDelete= (id)=>{
@@ -52,7 +52,7 @@ const MyItem = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axios.delete(`http://localhost:3000/itemdel/${id}`,{
+                axios.delete(`https://whereisit-server-side-plum.vercel.app/itemdel/${id}`,{
                     headers: {
                     Authorization: `Bearer ${user?.accessToken}`
                     }
@@ -64,6 +64,9 @@ const MyItem = () => {
                         text: "Your file has been deleted.",
                         icon: "success"
                         });
+
+                        const updated = datas.filter(dat => dat._id !== id);
+                        setdatas(updated)
                     }
                 })
 
@@ -93,7 +96,7 @@ const MyItem = () => {
                         {/* rows */}
                         
                             {
-                                data.map((singleItem,index)=><tr key={index}>
+                                datas.map((singleItem,index)=><tr key={index}>
                                 <th>{index+1}</th>
                                 <td>
                                     <div className="avatar">

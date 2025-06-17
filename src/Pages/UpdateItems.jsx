@@ -14,7 +14,7 @@ const UpdateItems = () => {
         const { isPending, isError, data } = useQuery({
         queryKey: ['upItem'],
         queryFn: async ()=>{
-            const res= await axios.get(`http://localhost:3000/item/${id}`,{
+            const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/item/${id}`,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }
@@ -38,7 +38,7 @@ const UpdateItems = () => {
         newPost.date = selectedDate.toLocaleDateString() ;
         
 
-        axios.put(`http://localhost:3000/addupdate/${id}`,newPost,{
+        axios.put(`https://whereisit-server-side-plum.vercel.app/addupdate/${id}`,newPost,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }

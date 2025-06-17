@@ -5,7 +5,7 @@ import useAuth from '../Hooks/useAuth';
 
 const Login = () => {
     const {loginUser,googleLogin}= useAuth();
-    const navi= useNavigate();
+    const navi= useNavigate(); 
     const location= useLocation();
 
     const hundleLogin= e =>{

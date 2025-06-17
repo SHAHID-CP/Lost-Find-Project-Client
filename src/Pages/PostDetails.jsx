@@ -8,7 +8,7 @@ import { FaRegUser, FaTag } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineEmail } from 'react-icons/md';
 import axios from 'axios';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import LoadingEle from '../Component/LoadingEle';
 import ErrorPage from './ErrorPage';
 import { toast } from 'react-toastify';
@@ -18,7 +18,7 @@ const PostDetails = () => {
         const { isPending, isError, data } = useQuery({
         queryKey: ['singleItem'],
         queryFn: async ()=>{
-            const res= await axios.get(`http://localhost:3000/item/${id}`,{
+            const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/item/${id}`,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }
@@ -26,7 +26,7 @@ const PostDetails = () => {
             return res.data;
         },
         })
-
+        const navi= useNavigate();
         const {_id,titlee,photUrl,location,description,date,status,contact,category} = data || {};
 
         const [selectedDate, setSelectedDate] = useState(new Date());
@@ -49,7 +49,7 @@ const PostDetails = () => {
         newPost.status='Recovered';
         const update= {status:newPost.status};
         
-        axios.post('http://localhost:3000/addRecover',newPost,{
+        axios.post('https://whereisit-server-side-plum.vercel.app/addRecover',newPost,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }
@@ -58,7 +58,7 @@ const PostDetails = () => {
             if(res.data.insertedId){
                 e.target.reset()
                 toast("Item Recovered successfully");
-                axios.patch(`http://localhost:3000/item/${_id}`,update,{
+                axios.patch(`https://whereisit-server-side-plum.vercel.app/item/${_id}`,update,{
                         headers: {
                         Authorization: `Bearer ${user?.accessToken}`
                         }
@@ -71,6 +71,11 @@ const PostDetails = () => {
 
 
 
+    }
+
+    const hundleModal= ()=>{
+        navi('/');
+        document.getElementById('my_modal_2').showModal()
     }
 
 
@@ -121,10 +126,10 @@ const PostDetails = () => {
                             </div>
                             
                             {
-                                status=="Lost" && <button onClick={()=>document.getElementById('my_modal_2').showModal()} className='btn bg-red-300 w-full'>Found This!</button>
+                                status=="Lost" && <button onClick={hundleModal} className='btn bg-red-300 w-full'>Found This!</button>
                             }
                             {
-                                status=="Found" && <button onClick={()=>document.getElementById('my_modal_2').showModal()} className='btn bg-blue-300 w-full'>This is Mine!</button>
+                                status=="Found" && <button onClick={hundleModal} className='btn bg-blue-300 w-full'>This is Mine!</button>
                             }
                             {
                                 status=="Recovered" && <button className='btn bg-green-300 w-full'>Allready Recovered!</button>

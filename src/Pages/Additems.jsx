@@ -20,7 +20,7 @@ const Additems = () => {
         newPost.date = selectedDate.toLocaleDateString() ;
         
 
-        axios.post('http://localhost:3000/addItem',newPost,{
+        axios.post('https://whereisit-server-side-plum.vercel.app/addItem',newPost,{
             headers: {
                 Authorization: `Bearer ${user?.accessToken}`
             }

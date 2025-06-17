@@ -21,6 +21,8 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                hydrateFallbackElement: <LoadingEle></LoadingEle> ,
+                loader: ()=> fetch('https://whereisit-server-side-plum.vercel.app/item'),
                 element: <Home></Home>,
             },
             {
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: '/allItems',
                 hydrateFallbackElement: <LoadingEle></LoadingEle> ,
-                loader: ()=> fetch('http://localhost:3000/item'),
+                loader: ()=> fetch('https://whereisit-server-side-plum.vercel.app/item'),
                 element: <Allitems></Allitems>,
             },
             {

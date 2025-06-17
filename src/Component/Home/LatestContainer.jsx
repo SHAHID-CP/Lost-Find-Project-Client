@@ -1,8 +1,9 @@
 import React from 'react';
 import HomeCard from './HomeCard';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const LatestContainer = () => {
+    const data= useLoaderData();
     return (
         <div className="max-w-7xl mx-auto mb-12">
             <h2 className="text-4xl font-bold mb-4 text-center">Latest Lost & Found Items</h2>
@@ -16,6 +17,11 @@ const LatestContainer = () => {
                    <HomeCard></HomeCard>
                    <HomeCard></HomeCard>
                 */}
+                {   [...data]
+                    .sort((a, b) => new Date(a.date) - new Date(b.date))
+                    .slice(0, 6)
+                    .map((singleItem)=><HomeCard key={singleItem._id} singleItem={singleItem}></HomeCard>)
+                }
 
             </div>
             <div className='flex justify-center'>

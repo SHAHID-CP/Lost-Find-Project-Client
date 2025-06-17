@@ -4,7 +4,15 @@ import { useLoaderData } from 'react-router';
 
 const Allitems = () => {
     const data=useLoaderData();
+    
+
     const [item,setItem] = useState(data);
+    const [serchdata,setserch]= useState('');
+    const filteredData = item.filter(itemm =>
+            itemm.titlee.toLowerCase().includes(serchdata.toLowerCase()) ||
+            itemm.location.toLowerCase().includes(serchdata.toLowerCase())
+   );
+
     return (
         <div className="max-w-7xl mx-auto my-12">
             <title>All Item</title>
@@ -18,7 +26,7 @@ const Allitems = () => {
                             <path d="m21 21-4.3-4.3"></path>
                         </g>
                         </svg>
-                        <input type="search" required placeholder="Search" />
+                        <input onChange={(e) => setserch(e.target.value)} value={serchdata} type="search" required placeholder="Search" />
                 </label>
             </div>
             {
@@ -28,7 +36,7 @@ const Allitems = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 
                 {
-                    item.map(singleItem =>(<HomeCard key={singleItem._id} singleItem={singleItem}></HomeCard>))
+                    filteredData.map(singleItem =>(<HomeCard key={singleItem._id} singleItem={singleItem}></HomeCard>))
                 }
             </div>
         </div>

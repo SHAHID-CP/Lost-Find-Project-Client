@@ -74,7 +74,10 @@ const PostDetails = () => {
     }
 
     const hundleModal= ()=>{
-        navi('/');
+        if(user.email===contact.useremail){
+            navi('/')
+            return
+        }
         document.getElementById('my_modal_2').showModal()
     }
 

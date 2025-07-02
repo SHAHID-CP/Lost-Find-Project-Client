@@ -1,8 +1,9 @@
 import React from 'react';
+import Marquee from "react-fast-marquee";
 const SuccessStories = () => {
     return (
         
-        <div className="max-w-7xl mx-auto mb-12">
+        <div className="max-w-7xl mx-auto py-12">
             
         <div className="text-center mb-12" >
             <h2 className="text-4xl font-bold mb-4">Success Stories</h2>
@@ -11,8 +12,10 @@ const SuccessStories = () => {
             </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+        
+            
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
                 <div className="p-6  border-2 rounded-2xl bg-red-100 ">
                     <div className='flex items-end gap-2'>
                         <div className='size-16 rounded-full bg-gray-400 '>
@@ -72,8 +75,10 @@ const SuccessStories = () => {
                     </p>
                 </div>
             </div>
+            </div>
+            
         
-        </div>
+        
 
             
         </div>

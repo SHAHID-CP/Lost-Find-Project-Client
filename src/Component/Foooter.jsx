@@ -7,7 +7,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const Foooter = () => {
     return (
-         <footer className="bg-muted py-8 border-t bg-gray-300">
+         <footer className="bg-muted py-8  bg-gray-200 mt-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-3">
@@ -30,23 +30,23 @@ const Foooter = () => {
             <h3 className="text-sm font-medium">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link className=" hover:text-indigo-600">
+                <Link to='/' className=" hover:text-indigo-600">
                   Home
                 </Link>
               </li>
               <li>
-                <Link  className=" hover:text-indigo-600">
+                <Link to='/about'  className=" hover:text-indigo-600">
                   About
                 </Link>
               </li>
               <li>
-                <Link  className=" hover:text-indigo-600">
-                  Services
+                <Link to='/contact'  className=" hover:text-indigo-600">
+                  Contact
                 </Link>
               </li>
               <li>
-                <Link className=" hover:text-indigo-600">
-                  Contact
+                <Link to='/support' className=" hover:text-indigo-600">
+                  Support
                 </Link>
               </li>
             </ul>

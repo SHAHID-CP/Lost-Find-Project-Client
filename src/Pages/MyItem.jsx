@@ -44,7 +44,7 @@ const MyItem = () => {
     
 
 
-    const hundleDelete= (id)=>{
+    const hundleDelete= (id)=>{ 
 
 
         Swal.fire({
@@ -82,7 +82,7 @@ const MyItem = () => {
 
     }
     return (
-        <div>
+        <div className='mb-24'>
             <title>My Item</title>
             <h2 className="text-3xl text-center font-bold my-8">Manage My Item </h2>
             <div className="overflow-x-auto">
@@ -93,7 +93,7 @@ const MyItem = () => {
                             <th></th>
                             <th>Image</th>
                             <th>Title</th>
-                            <th>Category</th>
+                            <th>Date</th>
                             <th>Email</th>
                             <th>Manage Item</th>
                         </tr>

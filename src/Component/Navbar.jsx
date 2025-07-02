@@ -11,6 +11,7 @@ const Navbar = () => {
     const navi= useNavigate();
     
     // const user=true;
+    
     const userPhoto=user?.photoURL;
     const userNamed=user?.displayName;
 
@@ -31,7 +32,7 @@ const Navbar = () => {
     
 
     return (
-        <div className='navbar p-0 bg-white shadow-sm  mx-auto px-8 md:px-12 lg:px-16 xl:px-24 py-3'>
+        <div className='navbar p-0 z-50 backdrop-blur-lg bg-white/30 shadow-md  mx-auto px-8 md:px-12 lg:px-16 xl:px-24 py-3 sticky top-0'>
         <div className='navbar-start'>
         <div className='dropdown'>
             <div
@@ -65,7 +66,22 @@ const Navbar = () => {
 
             <li>
                 <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/allItems' >
-                Lost & Found Items
+                All Items
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/about' >
+                About
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/contact' >
+                Contact
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/support' >
+                Support
                 </NavLink>
             </li>
             
@@ -92,7 +108,22 @@ const Navbar = () => {
 
             <li>
                 <NavLink className={({ isActive }) => isActive ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-black' } to='/allItems' >
-                Lost & Found Items
+                All Items
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-black' } to='/about' >
+                About
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-black' } to='/contact' >
+                Contact
+                </NavLink>
+            </li>
+            <li>
+                <NavLink className={({ isActive }) => isActive ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-black' } to='/support' >
+                Support
                 </NavLink>
             </li>
         </ul>
@@ -113,8 +144,9 @@ const Navbar = () => {
                             <div className={`w-10 rounded-full border-2 border-[#ff5835] ${user ? 'block' : 'hidden'}  `} >
                     
                             {
-                                userPhoto && <img src={userPhoto} alt='No photo' />
+                                userPhoto && <img src={userPhoto} alt='No photo' /> 
                             }
+                            
                             </div>
                         </div>
                         <Tooltip anchorSelect=".my-anchor-element" place="bottom">
@@ -125,22 +157,22 @@ const Navbar = () => {
                         </Link>
 
                 </div>
-                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box mt-3 z-1 w-52 p-2 shadow-sm not-sm:text-xs">
+                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box mt-3 z-1 w-42 p-2 shadow-sm not-sm:text-xs">
                     
                     {user && <>
                     <li>
                         <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/addItems' >
-                        Add Lost & Found Item
+                        Add Item
                         </NavLink>
                     </li>
                     <li>
                         <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/allrecovered' >
-                        All Recovered Items
+                        Recovered Items
                         </NavLink>
                     </li>
                     <li>
                         <NavLink className={({ isActive }) => isActive ? 'text-indigo-600' : '' } to='/myItems' >
-                        Manage My Items
+                        My Items
                         </NavLink>
                     </li>
                 

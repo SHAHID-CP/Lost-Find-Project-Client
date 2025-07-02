@@ -12,6 +12,9 @@ import UpdateItems from "../Pages/UpdateItems";
 import AllRecovered from "../Pages/AllRecovered";
 import PrivateRoute from "../Private/PrivateRoute";
 import LoadingEle from "../Component/LoadingEle";
+import AboutUs from "../Component/Home/About";
+import Contact from "../Component/Home/Contact";
+import Support from "../Component/Home/Support";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +35,18 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>,
+            },
+            {
+                path: '/about',
+                element: <AboutUs></AboutUs>,
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>,
+            },
+            {
+                path: '/support',
+                element: <Support></Support>,
             },
             {
                 path: '/allItems',

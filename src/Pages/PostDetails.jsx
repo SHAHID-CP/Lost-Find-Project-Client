@@ -90,16 +90,16 @@ const PostDetails = () => {
     }
 
     return (
-        <div className='my-14'>
+        <div className='py-24'>
             <title>Update Item</title>
             <h2 className='text-2xl font-bold text-center mb-8 text-green-400'>Post Details</h2>
 
-            <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-end md:w-10/12 mx-auto'>
+            <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-stretch md:w-10/12 mx-auto '>
 
-                        <div className='sm:w-1/2'>
-                                <img className='object-cover w-full max-h-48 sm:max-h-80 rounded-2xl ' src={photUrl} alt="None" />
+                        <div className=' overflow-hidden'>
+                                <img className='object-cover w-full h-full rounded-2xl ' src={photUrl} alt="None" />
                         </div>
-                        <div className='mt-2 sm:w-1/2 sm:ml-4'>
+                        <div className='mt-2 sm:w-1/2 sm:ml-4 flex flex-col justify-end '>
                             <p className={`max-w-fit text-xs font-semibold text-white px-3 py-1 rounded-2xl ${status == "Lost" ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"}`}>{status}</p>
                             <h3 className='text-xl font-bold mb-4 mt-2'>{titlee}</h3>
 

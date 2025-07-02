@@ -3,14 +3,16 @@ import SuccessStories from './SuccessStories';
 import Carosel from './Carosel';
 import JoinSucces from './JoinSucces';
 import LatestContainer from './LatestContainer';
+import MyCarousel from './MyCarousel';
+import LostFoundSections from '../LostFoundItem';
 
 const Home = () => {
     return (
         <div>
-            <Carosel></Carosel>
+            <MyCarousel></MyCarousel>
             <LatestContainer></LatestContainer>
             <SuccessStories></SuccessStories>
-            <JoinSucces></JoinSucces>
+            <LostFoundSections></LostFoundSections>
         </div>
     );
 };

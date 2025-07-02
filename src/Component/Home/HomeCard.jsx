@@ -8,7 +8,7 @@ const HomeCard = ({singleItem}) => {
     
     return (
         <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 hover:shadow-lg transition-shadow'>
-            <img className='w-full max-h-48 rounded-2xl ' src={photUrl} alt="None" />
+            <img className='border-1 border-gray-300 object-cover w-full max-h-48 rounded-2xl ' src={photUrl} alt="None" />
             <div className='mt-2'>
                 <div className='sm:flex justify-between items-center'>
                         <h3 className='text-xl font-semibold not-sm:mb-2'>{titlee}</h3>

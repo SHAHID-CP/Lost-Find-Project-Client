@@ -132,11 +132,11 @@ const UpdateItems = () => {
                                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                                     <fieldset className="fieldset  p-2">
                                     <label className="label">Display Name</label>
-                                    <input value={user?.displayName} type="text" name='username' className="input w-full" placeholder="User Name" required/>
+                                    <input readOnly value={user?.displayName} type="text" name='username' className="input w-full" placeholder="User Name" required/>
                                     </fieldset>
                                     <fieldset className="fieldset  p-2">
                                     <label className="label">Email</label>
-                                    <input value={user?.email} type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
+                                    <input readOnly value={user?.email} type="email" name='useremail' className="input w-full" placeholder="User Email" required/>
                                     </fieldset>
                                 </div>
                             </div>

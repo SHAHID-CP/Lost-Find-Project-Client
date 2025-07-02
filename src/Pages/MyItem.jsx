@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { GrUpdate } from 'react-icons/gr';
 import { MdDeleteForever } from 'react-icons/md';
@@ -11,31 +11,37 @@ import ErrorPage from './ErrorPage';
 
 
 const MyItem = () => {
-        
-        const {user} =useAuth();
+        const [datas,setdatas] =useState([]);
+        const {user,token,loading} =useAuth();
         const { isPending, isError, data } = useQuery({
         queryKey: ['manageItem'],
+        enabled: !loading && !!token,
         queryFn: async ()=>{
-            const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/myItem?email=${user?.email}`,{
-            headers: {
-                Authorization: `Bearer ${user?.accessToken}`
-            }
-        })
-            return res.data;
+                const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/myItem?email=${user?.email}`,{
+                    headers: {
+                    Authorization: `Bearer ${token}`
+                    }
+                })
+                return res.data;
         },
         })
+
+    useEffect(() => {
+        if (data) {
+        setdatas(data);
+        }
+    }, [data]);
+
 
     if(isPending){
         return <LoadingEle></LoadingEle>
     }
-    if(isError){
-        return <ErrorPage></ErrorPage>
-    }
+    
     if(data.length === 0){
         return <p className='text-5xl text-center font-bold mt-24'>No Manage Data</p>
     }
   
-    const [datas,setdatas] =useState(data);
+    
 
 
     const hundleDelete= (id)=>{

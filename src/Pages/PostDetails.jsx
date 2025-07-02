@@ -16,7 +16,7 @@ import { toast } from 'react-toastify';
 const PostDetails = () => {
         const {id}= useParams();
         const { isPending, isError, data } = useQuery({
-        queryKey: ['singleItem'],
+        queryKey: ['singleItem',id],
         queryFn: async ()=>{
             const res= await axios.get(`https://whereisit-server-side-plum.vercel.app/item/${id}`,{
             headers: {
@@ -97,7 +97,7 @@ const PostDetails = () => {
             <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-end md:w-10/12 mx-auto'>
 
                         <div className='sm:w-1/2'>
-                                <img className='w-full max-h-48 sm:max-h-80 rounded-2xl ' src={photUrl} alt="None" />
+                                <img className='object-cover w-full max-h-48 sm:max-h-80 rounded-2xl ' src={photUrl} alt="None" />
                         </div>
                         <div className='mt-2 sm:w-1/2 sm:ml-4'>
                             <p className={`max-w-fit text-xs font-semibold text-white px-3 py-1 rounded-2xl ${status == "Lost" ? "bg-red-500 hover:bg-red-600" : "bg-green-500 hover:bg-green-600"}`}>{status}</p>
@@ -251,11 +251,11 @@ const PostDetails = () => {
                                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                                                         <fieldset className="fieldset  p-2">
                                                         <label className="label">Display Name</label>
-                                                        <input value={user?.displayName} type="text" name='recoveredUsername' className="input w-full" placeholder="Recovered user Name" required/>
+                                                        <input readOnly value={user?.displayName} type="text" name='recoveredUsername' className="input w-full" placeholder="Recovered user Name" required/>
                                                         </fieldset>
                                                         <fieldset className="fieldset  p-2">
                                                         <label className="label">Email</label>
-                                                        <input value={user?.email} type="email" name='recoveredUseremail' className="input w-full" placeholder="Recovered user Email" required/>
+                                                        <input readOnly value={user?.email} type="email" name='recoveredUseremail' className="input w-full" placeholder="Recovered user Email" required/>
                                                         </fieldset>
                                                     </div>
                                                 </div>   

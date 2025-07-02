@@ -13,6 +13,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
 
     const [user,setUser] = useState(null);
+    const [token, setToken] = useState(null);
     const [loading,setLoading] =useState(true);
 
     const userCreate = (email, password) => {
@@ -38,8 +39,19 @@ const AuthProvider = ({children}) => {
 
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
+        const unSubscribe = onAuthStateChanged(auth, async(currentUser) => {
+
+            if(currentUser){
+                const idToken= await currentUser.getIdToken();
+                setUser(currentUser);
+                setToken(idToken);
+            }
+            else{
+                setUser(null)
+                setToken(null)
+            }
+
+            
             setLoading(false);
         })
         return () => {
@@ -54,6 +66,7 @@ const AuthProvider = ({children}) => {
         logoutUser,
         user,
         loading,
+        token
     }
     return (
         <AuthContext.Provider value={userInfo}>

@@ -100,7 +100,6 @@ VITE_API_URL=https://backend-eta.vercel.app
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
 VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
-VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
 VITE_BACKEND_URL=http://localhost:5000
 
 ```

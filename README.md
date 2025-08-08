@@ -55,3 +55,102 @@ If you are developing a production application, we recommend using TypeScript wi
 - [`react-simple-typewriter`](https://www.npmjs.com/package/react-simple-typewriter) – টাইপিং এনিমেশন ইফেক্টের জন্য
 - [`tailwindcss`](https://tailwindcss.com/) – Utility-first CSS framework
 - [`daisyui`](https://daisyui.com/) – TailwindCSS এর জন্য component-based UI ফ্রেমওয়ার্ক
+
+- ---
+
+
+## ⚙️ Installation & Setup
+
+### 📥 Clone Repositories
+
+# Clone Frontend
+```bash
+git clone https://github.com/Programming-Hero-Web-Course11/b11a11-client-side-CodesWithshahid.git
+cd b11a11-client-side-CodesWithshahid
+npm install
+npm run dev
+```
+# Clone Backend
+```bash
+git clone https://github.com/Programming-Hero-Web-Course11/b11a11-server-side-CodesWithshahid.git
+cd b11a11-server-side-CodesWitshahid
+npm install
+npm run dev
+```
+
+---
+
+## 🔒 Environment Variables
+
+### 🔹 Client (.env)
+
+```env
+VITE_API_KEY=your_firebase_key
+VITE_AUTH_DOMAIN=your_firebase_auth
+VITE_PROJECT_ID=your_project_id
+VITE_STORAGE_BUCKET=your_storage_bucket
+VITE_MESSAGING_SENDER_ID=your_sender_id
+VITE_APP_ID=your_app_id
+VITE_API_URL=https://backend-eta.vercel.app
+```
+
+### 🔹 Server (.env)
+
+```env
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+VITE_BACKEND_URL=http://localhost:5000
+
+```
+
+---
+
+## 📤 Image Upload
+
+- Users can upload product images using Imgbb
+- Supported on both **Add** and **Update** forms
+- Upload triggered through a secure backend API
+
+---
+
+## 🚀 Deployment
+
+### 🔹 Frontend (Firebase)
+
+```bash
+npm run build
+firebase deploy
+```
+
+### 🔹 Backend (Vercel Serverless)
+
+- Routes inside `/api/` folder
+- Export handlers using CommonJS/ES6
+- Follow [Vercel Docs](https://vercel.com/docs/functions) for structure
+
+---
+
+## 🧪 Testing
+
+- Backend routes tested via Postman
+- Firebase test users used for auth
+- UI feedback tested via forms, toasts, and edge cases
+
+---
+
+## 📫 Contact
+
+📧 Email: [shaahid.045@gmail.com](mailto:shaahid.045@gmail.com)
+🔗 LinkedIn: [Shahid Islam](https://linkedin.com/in/shaahid-cp)
+
+---
+
+## 🧑‍🎓 Author
+
+Made with 💻 by **Md. Shahid Islam**
+Lost & Find Project © 2025
+
+---
+

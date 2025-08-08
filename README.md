@@ -21,40 +21,41 @@ If you are developing a production application, we recommend using TypeScript wi
 ## 🔗 Live URL
 [👉 View the Live Website](https://beautiful-marigold-d08b9c.netlify.app/)
 
----
+## 📸 Screenshot 
+![WhereIsIt Screenshot](./screenshot.png)
 
-## 🚀 Key Features
+## 🛠️ Main Technologies Used
+- React  
+- Vite  
+- Firebase  
+- TailwindCSS  
+- DaisyUI  
 
-- 🔍 **User-friendly Interface** – সহজ ও পরিষ্কার ডিজাইন
-- ⚡ **Fast Performance** – Vite ব্যবহার করে আল্ট্রা ফাস্ট লোডিং টাইম
-- 📱 **Fully Responsive** – মোবাইল ও ডেস্কটপ উভয়ের জন্য উপযোগী
-- 🔐 **Authentication** – Firebase দিয়ে ইউজার অথেন্টিকেশন
-- 🖱️ **Interactive Tooltips** – React Tooltip দিয়ে ইনফরমেটিভ হোভার টিপস
-- ⌨️ **Animated Text Effects** – React Simple Typewriter দিয়ে চমৎকার টাইপিং এনিমেশন
-- 📢 **Toast Notifications** – React Toastify দিয়ে রিয়েলটাইম ইউজার নোটিফিকেশন
-- 💡 **Attractive UI** – DaisyUI এবং TailwindCSS ব্যবহার করে তৈরি
+## 🚀 Core Features
+- সহজ ও পরিষ্কার ইউজার ইন্টারফেস  
+- আল্ট্রা ফাস্ট লোডিং টাইম (Vite এর মাধ্যমে)  
+- সম্পূর্ণ রেসপন্সিভ ডিজাইন  
+- Firebase Authentication সাপোর্ট  
+- React Tooltip দিয়ে ইনফরমেটিভ হোভার টিপস  
+- React Simple Typewriter দিয়ে টাইপিং এনিমেশন  
+- React Toastify দিয়ে রিয়েলটাইম নোটিফিকেশন  
+- DaisyUI ও TailwindCSS দিয়ে আকর্ষণীয় UI  
 
----
-
-## 📦 NPM Packages Used
-
-এই প্রজেক্টে ব্যবহৃত গুরুত্বপূর্ণ npm প্যাকেজগুলো নিচে দেওয়া হল:
-
-
-- [`@lottiefiles/dotlottie-react`](https://www.npmjs.com/package/@lottiefiles/dotlottie-react) – Lottie এনিমেশন ব্যবহারের জন্য
-- [`@tailwindcss/vite`](https://www.npmjs.com/package/@tailwindcss/vite) – Vite এর সাথে TailwindCSS ইন্টিগ্রেশনের জন্য
-- [`axios`](https://www.npmjs.com/package/axios) – API call এর জন্য Lightweight HTTP client
-- [`firebase`](https://www.npmjs.com/package/firebase) – ইউজার অথেন্টিকেশন এবং রিয়েলটাইম ডেটা ব্যবস্থাপনার জন্য
-- [`motion`](https://www.framer.com/motion/) – চমৎকার React Animation লাইব্রেরি (Framer Motion ভিত্তিক)
-- [`react`](https://reactjs.org/) – Core React লাইব্রেরি UI তৈরির জন্য
-- [`react-dom`](https://reactjs.org/docs/react-dom.html) – DOM এ React কম্পোনেন্ট রেন্ডার করার জন্য
-- [`react-router-dom`](https://reactrouter.com/) – SPA রাউটিং ব্যবস্থাপনার জন্য
-- [`react-toastify`](https://fkhadra.github.io/react-toastify/) – ইউজার নোটিফিকেশনের জন্য
-- [`react-icons`](https://react-icons.github.io/react-icons/) – প্রচুর আইকন সাপোর্ট সহ Icon Library
-- [`react-tooltip`](https://react-tooltip.com/) – হোভার টুলটিপ দেখানোর জন্য
-- [`react-simple-typewriter`](https://www.npmjs.com/package/react-simple-typewriter) – টাইপিং এনিমেশন ইফেক্টের জন্য
-- [`tailwindcss`](https://tailwindcss.com/) – Utility-first CSS framework
-- [`daisyui`](https://daisyui.com/) – TailwindCSS এর জন্য component-based UI ফ্রেমওয়ার্ক
+## 📦 Dependencies Used
+- [`@lottiefiles/dotlottie-react`](https://www.npmjs.com/package/@lottiefiles/dotlottie-react) – Lottie এনিমেশন ব্যবহারের জন্য  
+- [`@tailwindcss/vite`](https://www.npmjs.com/package/@tailwindcss/vite) – Vite এর সাথে TailwindCSS ইন্টিগ্রেশনের জন্য  
+- [`axios`](https://www.npmjs.com/package/axios) – API কলের জন্য Lightweight HTTP client  
+- [`firebase`](https://www.npmjs.com/package/firebase) – ইউজার অথেন্টিকেশন ও ডেটা ব্যবস্থাপনার জন্য  
+- [`motion`](https://www.framer.com/motion/) – React Animation লাইব্রেরি (Framer Motion ভিত্তিক)  
+- [`react`](https://reactjs.org/) – Core React লাইব্রেরি  
+- [`react-dom`](https://reactjs.org/docs/react-dom.html) – React কম্পোনেন্ট রেন্ডার করার জন্য  
+- [`react-router-dom`](https://reactrouter.com/) – SPA রাউটিং ব্যবস্থাপনার জন্য  
+- [`react-toastify`](https://fkhadra.github.io/react-toastify/) – ইউজার নোটিফিকেশনের জন্য  
+- [`react-icons`](https://react-icons.github.io/react-icons/) – আইকন লাইব্রেরি  
+- [`react-tooltip`](https://react-tooltip.com/) – হোভার টুলটিপ দেখানোর জন্য  
+- [`react-simple-typewriter`](https://www.npmjs.com/package/react-simple-typewriter) – টাইপিং এনিমেশন ইফেক্টের জন্য  
+- [`tailwindcss`](https://tailwindcss.com/) – Utility-first CSS framework  
+- [`daisyui`](https://daisyui.com/) – TailwindCSS এর জন্য UI কম্পোনেন্ট ফ্রেমওয়ার্ক  
 
 - ---
 

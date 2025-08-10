@@ -15,7 +15,7 @@ const slides = [
       "Receive real-time notifications.",
       "Track the status until recovery.",
     ],
-    image: "https://i.ibb.co/v4hvmrZh/im1.jpg",
+    image: "https://i.ibb.co.com/whpXWSKR/lost-places-5209551-1920.jpg",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const slides = [
       "Keep everyone updated with status changes.",
       "Support community safety and trust.",
     ],
-    image: "https://i.ibb.co/WN5Bzwdn/im3.png",
+    image: "https://i.ibb.co.com/Cs8SrNcQ/autumn-8620917-1920.jpg",
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const slides = [
       "Close cases smoothly.",
       "Celebrate successful recoveries.",
     ],
-    image: "https://i.ibb.co/3bSVSVw/im4.jpg",
+    image: "https://i.ibb.co.com/SDm3qTGq/labyrinth-1015640-1920.jpg",
   },
 ];
 
@@ -67,26 +67,30 @@ const MyCarousel = () => {
               className="object-cover w-full h-full brightness-75"
             />
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent z-10"></div>
 
             {/* Left side text content */}
-            <div className="absolute inset-y-0 left-0 flex flex-col justify-center px-6 md:px-16 max-w-xl z-20 text-white space-y-4 md:space-y-6">
-              <h2 className="text-3xl md:text-5xl font-extrabold leading-snug md:leading-tight">
+            <div className="absolute inset-y-0 left-0 flex flex-col justify-center px-4 sm:px-6 md:px-16 max-w-xl z-20 text-white space-y-3 sm:space-y-4 md:space-y-6">
+              
+              {/* Title with gradient */}
+              <h2 className="text-3xl md:text-5xl font-extrabold leading-snug md:leading-tight bg-gradient-to-r from-primary via-primary/50 to-white/90 bg-clip-text text-transparent drop-shadow-lg">
                 {title}
               </h2>
-              <p className="text-base md:text-xl text-gray-300 max-w-md leading-relaxed">
+
+              {/* Description (responsive line-height & padding) */}
+              <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-md leading-snug sm:leading-relaxed">
                 {description}
               </p>
 
-              <ul className="list-disc list-inside text-gray-400 space-y-1 md:space-y-2 max-w-md text-sm md:text-lg leading-relaxed">
+              <ul className="list-disc list-inside text-gray-400 space-y-1 md:space-y-2 max-w-md text-xs sm:text-sm md:text-lg leading-snug sm:leading-relaxed">
                 {extraInfo.map((info, idx) => (
                   <li key={idx}>{info}</li>
                 ))}
               </ul>
 
               <Link to="allItems" aria-label={`View ${title}`}>
-                <button className="inline-flex items-center gap-2 bg-primary px-5 py-2 rounded-lg font-semibold hover:bg-primary/90 transition text-sm md:text-base">
-                  <MdOutlineViewInAr className="w-5 h-5" />
+                <button className="inline-flex items-center gap-2 bg-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition text-xs sm:text-sm md:text-base">
+                  <MdOutlineViewInAr className="w-4 h-4 md:w-5 md:h-5" />
                   View Item
                 </button>
               </Link>

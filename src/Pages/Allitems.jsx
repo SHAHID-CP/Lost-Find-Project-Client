@@ -32,7 +32,7 @@ const Allitems = () => {
     }
 
     return (
-        <div className="max-w-[1440px] mx-auto my-12">
+        <div className="max-w-[1440px] mx-auto my-12 px-2">
             <title>All Item</title>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-center">All Lost & Found Items</h2>
             

@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const MyCarousel = () => {
   return (
-    <div className="w-full h-[60vh] mb-14">
+    <div className="max-w-[2520px] mx-auto h-[70vh] mb-14">
       <Carousel
         infiniteLoop={true}
         autoPlay={true}
@@ -17,7 +17,7 @@ const MyCarousel = () => {
         className="h-full"
       >
         {/* Slide 1 */}
-        <div className="relative h-[60vh] w-full">
+        <div className="relative h-[70vh] w-full">
           {/* Image */}
           <img
             src="https://i.ibb.co/v4hvmrZh/im1.jpg"
@@ -32,7 +32,7 @@ const MyCarousel = () => {
             <p className="text-lg md:text-xl ">Post your lost item and get help finding it.</p>
             <Link to='allItems'>
                 
-                <div className="bg-[#ff5835] text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
+                <div className="bg-primary text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
                     <MdOutlineViewInAr className="w-5 h-5"/>
                     View Item
                   </div>
@@ -41,7 +41,7 @@ const MyCarousel = () => {
         </div>
 
         {/* Slide 2 */}
-        <div className="relative h-[60vh] w-full">
+        <div className="relative h-[70vh] w-full">
           <img
             src="https://i.ibb.co/WN5Bzwdn/im3.png"
             alt="Found Item"
@@ -53,7 +53,7 @@ const MyCarousel = () => {
             <p className="text-lg md:text-xl ">Help others by posting what you've found.</p>
             <Link to='allItems'>
                 
-                <div className="bg-[#ff5835] text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
+                <div className="bg-primary text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
                     <MdOutlineViewInAr className="w-5 h-5"/>
                     View Item
                   </div>
@@ -62,7 +62,7 @@ const MyCarousel = () => {
         </div>
 
         {/* Slide 3 */}
-        <div className="relative h-[60vh] w-full">
+        <div className="relative h-[70vh] w-full">
           <img
             src="https://i.ibb.co/3bSVSVw/im4.jpg"
             alt="Recovered"
@@ -74,7 +74,7 @@ const MyCarousel = () => {
             <p className="text-lg md:text-xl ">Mark items as recovered and help others.</p>
             <Link to='allItems'>
                 
-                <div className="bg-[#ff5835] text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
+                <div className="bg-primary text-white px-6 py-2 rounded-lg font-semibold inline-flex items-center gap-2 mt-2">
                     <MdOutlineViewInAr className="w-5 h-5"/>
                     View Item
                   </div>

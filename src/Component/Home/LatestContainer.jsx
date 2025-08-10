@@ -5,8 +5,8 @@ import { Link, useLoaderData } from 'react-router';
 const LatestContainer = () => {
     const data= useLoaderData();
     return (
-        <div className="max-w-7xl mx-auto pt-12 mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-center">Latest Lost & Found Items</h2>
+        <div className="max-w-[1440px] mx-auto pt-12 mb-12">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-center">Latest Lost & Found Items</h2>
             <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-12">
               Browse the most recent items reported by our community. Your lost item might be here!
             </p>
@@ -26,7 +26,7 @@ const LatestContainer = () => {
             </div>
             <div className='flex justify-center'>
                 <Link to='/allItems'>
-                <button className='btn bg-black rounded-lg text-white '>See All Items </button>
+                <button className='btn border-2 border-primary bg-background hover:bg-white rounded-lg text-primary '>See All Items </button>
                 </Link>
             </div>
         </div>

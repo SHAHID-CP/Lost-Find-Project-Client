@@ -1,18 +1,18 @@
 import React from 'react';
 import SuccessStories from './SuccessStories';
-import Carosel from './Carosel';
-import JoinSucces from './JoinSucces';
 import LatestContainer from './LatestContainer';
 import MyCarousel from './MyCarousel';
 import LostFoundSections from '../LostFoundItem';
+import SafetyTipsSection from './Safty';
 
 const Home = () => {
     return (
         <div>
             <MyCarousel></MyCarousel>
             <LatestContainer></LatestContainer>
-            <SuccessStories></SuccessStories>
+            <SafetyTipsSection></SafetyTipsSection>
             <LostFoundSections></LostFoundSections>
+            <SuccessStories></SuccessStories>
         </div>
     );
 };

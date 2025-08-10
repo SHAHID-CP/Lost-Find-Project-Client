@@ -1,20 +1,15 @@
 import {
   MdSearch,
-  MdQuestionAnswer,
-  MdBuild,
-  MdSettings,
   MdExpandMore,
   MdExpandLess,
   MdChat,
   MdEmail,
   MdPhone,
-} from "react-icons/md"
-import { useState } from "react"
+} from "react-icons/md";
+import { useState } from "react";
 
 export default function Support() {
-  const [expandedFaq, setExpandedFaq] = useState(null)
-
-  
+  const [expandedFaq, setExpandedFaq] = useState(null);
 
   const faqs = [
     {
@@ -42,7 +37,7 @@ export default function Support() {
       answer:
         "Ask them to describe specific details about the item that weren't mentioned in your post. Trust your instincts and don't hand over items if you have doubts.",
     },
-  ]
+  ];
 
   const supportOptions = [
     {
@@ -60,23 +55,24 @@ export default function Support() {
       title: "Phone Support",
       description: "Call our dedicated support line",
     },
-  ]
+  ];
 
   const toggleFaq = (index) => {
-    setExpandedFaq(expandedFaq === index ? null : index)
-  }
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 mb-24">
+    <div className="min-h-screen bg-background dark:bg-gray-900 mb-24 transition-colors">
       {/* Hero Section */}
-      <div className="bg-white shadow-sm border-b border-gray-200">
+      <div className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              WhereIsIt <span className="text-[#ff6900]">Support</span>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+              WhereIsIt <span className="text-primary">Support</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Get help with reporting items, account management, and making successful connections.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+              Get help with reporting items, account management, and making
+              successful connections.
             </p>
 
             {/* Search Bar */}
@@ -87,7 +83,7 @@ export default function Support() {
               <input
                 type="text"
                 placeholder="Search for help..."
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6900] focus:border-transparent"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-[#ff6900] focus:border-transparent bg-white dark:bg-gray-700 dark:text-gray-200 transition-colors"
                 readOnly
               />
             </div>
@@ -101,23 +97,27 @@ export default function Support() {
           {supportOptions.map((option, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-sm p-6 text-center border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer"
             >
-              <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-[#ff6900]">
+              <div className="bg-red-100 dark:bg-primary/30 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-[#ff6900]">
                 {option.icon}
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{option.title}</h3>
-              <p className="text-gray-600">{option.description}</p>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                {option.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                {option.description}
+              </p>
             </div>
           ))}
         </div>
 
-        
-
         {/* Safety Tips */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-12">
-          <h3 className="text-lg font-semibold text-yellow-800 mb-3">🛡️ Safety First</h3>
-          <div className="grid md:grid-cols-2 gap-4 text-sm text-yellow-700">
+        <div className="bg-yellow-50 dark:bg-primary/20 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6 mb-12">
+          <h3 className="text-lg font-semibold text-gray-400 dark:text-gray-400 mb-3">
+            🛡️ Safety First
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-400 dark:text-gray-400">
             <div>
               <p className="mb-2">• Always meet in public, well-lit areas</p>
               <p className="mb-2">• Bring a friend when possible</p>
@@ -125,46 +125,54 @@ export default function Support() {
             </div>
             <div>
               <p className="mb-2">• Verify item details before meeting</p>
-              <p className="mb-2">• Don't share personal information unnecessarily</p>
+              <p className="mb-2">
+                • Don't share personal information unnecessarily
+              </p>
               <p>• Report suspicious behavior to our team</p>
             </div>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900">Frequently Asked Questions</h2>
-            <p className="text-gray-600 mt-2">Find answers to common questions about using FindItBack</p>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+          <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              Find answers to common questions about using FindItBack
+            </p>
           </div>
 
-          <div className="divide-y divide-gray-200">
+          <div className="divide-y divide-gray-200 dark:divide-gray-700">
             {faqs.map((faq, index) => (
               <div key={index}>
                 <div
                   onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 cursor-pointer"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
                 >
-                  <span className="font-medium text-gray-900 pr-4">{faq.question}</span>
+                  <span className="font-medium text-gray-900 dark:text-white pr-4">
+                    {faq.question}
+                  </span>
                   {expandedFaq === index ? (
-                    <MdExpandLess className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <MdExpandLess className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
                   ) : (
-                    <MdExpandMore className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                    <MdExpandMore className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
                   )}
                 </div>
 
                 {expandedFaq === index && (
                   <div className="px-6 pb-4">
-                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 )}
               </div>
             ))}
           </div>
         </div>
-
-        
       </div>
     </div>
-  )
+  );
 }

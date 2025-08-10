@@ -1,86 +1,119 @@
-import { Newspaper, AlertTriangle, MapPin, Users, Mail } from "lucide-react"
+import { Newspaper, AlertTriangle, MapPin, Users, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function LostFoundSections() {
   const newsItems = [
     {
-      icon: <Newspaper className="w-5 h-5" />,
+      icon: <Newspaper className="inline w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-3" />,
       title: "New Search Filters Available",
-      description: "Find lost items faster with our enhanced category and location filters.",
+      description:
+        "Find lost items faster with our enhanced category and location filters.",
     },
     {
-      icon: <AlertTriangle className="w-5 h-5" />,
+      icon: <AlertTriangle className="inline w-6 h-6 text-yellow-500 dark:text-yellow-400 mr-3" />,
       title: "Missing Pet Alert System",
-      description: "Instant notifications when pets matching your description are reported found.",
+      description:
+        "Instant notifications when pets matching your description are reported found.",
     },
     {
-      icon: <MapPin className="w-5 h-5" />,
+      icon: <MapPin className="inline w-6 h-6 text-green-500 dark:text-green-400 mr-3" />,
       title: "Expanded Coverage Areas",
       description: "LostFinder now covers 50+ new cities across the region.",
     },
     {
-      icon: <Users className="w-5 h-5" />,
+      icon: <Users className="inline w-6 h-6 text-pink-500 dark:text-pink-400 mr-3" />,
       title: "Community Success Stories",
-      description: "Over 10,000 items successfully reunited with their owners this month.",
+      description:
+        "Over 10,000 items successfully reunited with their owners this month.",
     },
-  ]
+  ];
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+    }),
+    hover: {
+      scale: 1.03,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const newsletterVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { delay: 0.7, duration: 0.8, ease: "easeOut" } },
+    hover: {
+      scale: 1.02,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
 
   return (
-    <div className="w-full mb-24">
-      {/* Blog/Updates Section */}
-      <section className="py-16 px-4 bg-white ">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">Latest News & Stories</h2>
+    <div className="max-w-[1440px] mx-auto px-6 py-16 bg-gradient-to-t dark:bg-background dark:text-gray-300">
+      
+      <motion.h2
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-14"
+      >
+        Latest News & Stories
+      </motion.h2>
 
-          <div className="space-y-6">
-            {newsItems.map((item, index) => (
-              <div
-                key={index}
-                className="group border-l-4 border-gray-400 pl-4 py-4 transition-all duration-300 hover:scale-[1.02] hover:pl-6 hover:border-gray-600"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="text-gray-500 group-hover:text-gray-700 transition-colors duration-300 mt-1">
-                    {item.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg md:text-xl font-semibold text-gray-700 group-hover:text-gray-900 transition-colors duration-300 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter/Info Section */}
-      <section className="py-16 px-4 bg-[#d1fae55e] rounded-2xl">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="mb-8">
-            <Mail className="w-12 h-12 mx-auto mb-4 text-[#ff5835]" />
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Stay Updated with LostFinder</h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Get notified about lost or found items near you.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200">
-            <div className="max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="w-full px-4 py-3 rounded-full text-gray-800 placeholder-gray-500 border border-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 focus:border-gray-400 transition-all duration-300"
-                readOnly
-              />
+      {/* Text List */}
+      <ul className="space-y-10">
+        {newsItems.map((item, i) => (
+          <motion.li
+            key={i}
+            custom={i}
+            initial="hidden"
+            animate="visible"
+            whileHover="hover"
+            variants={itemVariants}
+            className="flex items-start cursor-pointer"
+          >
+            <div className="flex-shrink-0 mt-1">{item.icon}</div>
+            <div>
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                {item.title}
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl">
+                {item.description}
+              </p>
             </div>
+          </motion.li>
+        ))}
+      </ul>
 
-            <p className="text-gray-500 text-sm mt-4">
-              Join 25,000+ users who never miss an update. Unsubscribe anytime.
-            </p>
-          </div>
-        </div>
-      </section>
+      
+      <motion.section
+        initial="hidden"
+        animate="visible"
+        whileHover="hover"
+        variants={newsletterVariants}
+        className="mt-24 bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-3xl py-16 px-10 text-center shadow-lg cursor-pointer"
+      >
+        <Mail className="w-16 h-16 mx-auto mb-6 text-indigo-600 dark:text-indigo-400" />
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          Stay Updated with LostFinder
+        </h2>
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-10 max-w-xl mx-auto">
+          Get notified instantly about lost or found items near your area.
+        </p>
+
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          className="w-full max-w-md rounded-full border border-gray-300 dark:border-gray-600 px-6 py-4 text-gray-900 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-300 dark:focus:ring-indigo-600 focus:border-indigo-500 transition"
+          readOnly
+        />
+
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+          Join 25,000+ users who never miss an update. Unsubscribe anytime.
+        </p>
+      </motion.section>
     </div>
-  )
+  );
 }

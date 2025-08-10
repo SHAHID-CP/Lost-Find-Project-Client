@@ -6,24 +6,29 @@ const slides = [
   {
     id: "slide1",
     text: "Join thousands of people who have successfully reunited with their lost belongings through our platform.",
+    description: "Our community-driven approach ensures that every lost item has the highest chance of finding its way back to its owner. Safe, quick, and reliable.",
     img: "https://i.ibb.co/6cddyK5W/im2.jpg"
   },
   {
     id: "slide2",
     text: "Be a hero in someone's story by reporting found items and helping reunite them with their owners.",
+    description: "Your small action could mean the world to someone else. Report found items easily and help create happy endings for strangers.",
     img: "https://i.ibb.co/WN5Bzwdn/im3.png"
   },
   {
     id: "slide3",
     text: "Every item has a story. Help write a happy ending by reporting lost and found belongings.",
+    description: "We make it simple to log lost or found items. Together, we can reconnect people with their cherished possessions.",
     img: "https://i.ibb.co/3bSVSVw/im4.jpg"
   },
   {
     id: "slide4",
     text: "We've helped thousands of people reconnect with what matters most. Be part of the journey.",
+    description: "Join our growing network of people committed to kindness, empathy, and community support.",
     img: "https://i.ibb.co/v4hvmrZh/im1.jpg"
   }
 ];
+
 
 const Carosel = () => {
   return (

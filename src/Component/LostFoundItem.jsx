@@ -95,7 +95,7 @@ export default function LostFoundSections() {
         variants={newsletterVariants}
         className="mt-24 bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-3xl py-16 px-10 text-center shadow-lg cursor-pointer"
       >
-        <Mail className="w-16 h-16 mx-auto mb-6 text-indigo-600 dark:text-indigo-400" />
+        <Mail className="w-16 h-16 mx-auto mb-6 text-primary dark:text-primary" />
         <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
           Stay Updated with LostFinder
         </h2>

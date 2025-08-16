@@ -77,7 +77,7 @@
 
   --border: #d0d0d0;
   --input: #cccccc;
-  --ring: #02c4be;
+  --ring: #ff3d41;
 
   --chart-1: #02c4be;
   --chart-2: #ff3d41;
@@ -97,7 +97,7 @@
 
 /* Dark Theme */
 .dark {
-  --background: #1d232a;
+  --background: #111827;
   --foreground: #e3e3e3;
 
   --card: #2a2a2a;
@@ -122,7 +122,7 @@
 
   --border: #333333;
   --input: #444444;
-  --ring: #02c4be;
+  --ring: #ff3d41;
 
   --chart-1: #02c4be;
   --chart-2: #ff3d41;

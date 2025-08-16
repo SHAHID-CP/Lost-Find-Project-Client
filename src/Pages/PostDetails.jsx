@@ -69,7 +69,7 @@ const PostDetails = () => {
     };
 
     const handleModal = () => {
-        if (user.email === contact.useremail) {
+        if (user?.email === contact?.useremail) {
             navigate('/');
             return;
         }
@@ -90,12 +90,12 @@ const PostDetails = () => {
             <p className=' w-2/3 text-center mx-auto text-xl text-gray-600 dark:text-gray-400 mb-4 leading-relaxed'>
                This post contains detailed information about the item including its category, location, and contact details. Please review all the details carefully before proceeding.
             </p>
-            <div className='border-2 rounded-2xl border-gray-200 p-5 bg-gray-100 sm:flex items-stretch md:w-10/12 mx-auto
+            <div className='border-2 rounded-2xl border-gray-200 p-5 bg-white sm:flex items-stretch md:w-10/12 mx-auto
                             dark:border-gray-700 dark:bg-gray-800'>
 
-                <div className='overflow-hidden aspect-[3/2]'>
+                <div className='overflow-hidden aspect-[3/2] sm:w-1/2'>
                     <img className='object-cover w-full h-full rounded-2xl' src={photUrl} alt="None" />
-                </div>
+                </div> 
 
                 <div className='mt-2 sm:w-1/2 sm:ml-4 flex flex-col justify-end'>
                     <p className={`max-w-fit text-xs font-semibold text-white px-3 py-1 rounded-2xl
@@ -143,11 +143,12 @@ const PostDetails = () => {
             <dialog id="my_modal_2" className="modal">
                 <div className="modal-box max-w-2/3 max-auto
                     dark:bg-gray-800 dark:text-gray-200">
-                    <h3 className="font-bold text-center text-lg mb-4 text-red-500 dark:text-red-400">
+                    <h3 className="font-bold text-center text-lg mb-4  ">
                         Recovered Information
                     </h3>
 
-                    <form onSubmit={handleItem} className='p-2 rounded-2xl bg-gradient-to-br from-[#ffe6e7] via-[#fff4ec] to-[#fef9c9] dark:from-gray-700 dark:via-gray-800 dark:to-gray-900'>
+                    <form onSubmit={handleItem} className='p-2 rounded-2xl bg-background
+                   dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 shadow-lg'>
 
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
 
@@ -198,7 +199,7 @@ const PostDetails = () => {
                                 />
                             </div>
 
-                            <div className='p-6 bg-gray-300 rounded-2xl sm:col-span-2 mb-4 dark:bg-gray-700'>
+                            <div className='p-6 bg-white rounded-2xl sm:col-span-2 mb-4 dark:bg-gray-700'>
                                 <span className='dark:text-gray-200'>Contact Information</span>
                                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                                     <fieldset className="fieldset p-2">
@@ -226,7 +227,7 @@ const PostDetails = () => {
                                 />
                             </div>
 
-                            <div className='p-6 bg-gray-300 rounded-2xl sm:col-span-2 mb-4 dark:bg-gray-700'>
+                            <div className='p-6 bg-white rounded-2xl sm:col-span-2 mb-4 dark:bg-gray-700'>
                                 <span className='dark:text-gray-200'>Recovered Person Information</span>
                                 <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
                                     <fieldset className="fieldset p-2">
@@ -242,7 +243,7 @@ const PostDetails = () => {
 
                         </div>
 
-                        <input type="submit" className='btn w-full' value="Submit" />
+                        <input type="submit" className='btn w-full border-2 border-primary bg-primary' value="Submit" />
                     </form>
                 </div>
                 <form method="dialog" className="modal-backdrop">

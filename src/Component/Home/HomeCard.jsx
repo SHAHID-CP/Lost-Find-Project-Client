@@ -20,7 +20,7 @@ const HomeCard = ({ singleItem }) => {
       whileHover="hover"
     >
       
-      <div className="overflow-hidden rounded-t-3xl aspect-[3/2]">
+      <div className="overflow-hidden rounded-t-3xl aspect-[3/2] border-b-2 border-background">
         <motion.img
           src={photUrl || 'https://via.placeholder.com/400x300?text=No+Image'}
           alt={titlee || 'Item Image'}

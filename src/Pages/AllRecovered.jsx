@@ -40,7 +40,7 @@ const AllRecovered = () => {
   }
 
   return (
-    <div className="mb-24 px-4 md:px-12">
+    <div className="mb-24 px-4 md:px-12 max-w-7xl mx-auto">
       <title>Recovered Items</title>
       <h2 className="text-4xl md:text-5xl font-extrabold text-center my-8 dark:text-white py-12">
         All Recovered Items

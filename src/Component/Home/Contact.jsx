@@ -137,18 +137,18 @@ export default function Contact() {
         </div>
 
         {/* Emergency Contact */}
-        <div className="mt-8 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 rounded-lg p-6">
-          <h3 className="font-semibold text-red-800 dark:text-red-400 mb-2">
+        <div className="mt-8 bg-white dark:bg-gray-800 border border-red-200 dark:border-red-700 rounded-lg p-6">
+          <h3 className="font-semibold text-gray-800 dark:text-red-400 mb-2">
             Lost Something Valuable or Important?
           </h3>
-          <p className="text-red-700 dark:text-red-300 mb-3">
+          <p className="  mb-3">
             For high-value items, important documents, or urgent situations, contact us immediately:
           </p>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm font-medium">
+            <span className="border-1 border-red-50 px-3 py-1 rounded-full text-sm font-medium">
               Emergency: +1 (555) 911-FIND
             </span>
-            <span className="bg-red-100 dark:bg-red-800 text-red-800 dark:text-red-200 px-3 py-1 rounded-full text-sm font-medium">
+            <span className="border-1 border-red-50 px-3 py-1 rounded-full text-sm font-medium">
               urgent@whereisit.com
             </span>
           </div>

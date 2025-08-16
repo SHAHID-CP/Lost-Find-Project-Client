@@ -48,14 +48,7 @@ const FeedbackSection = () => {
     <section
       className="
         py-16
-        bg-gradient-to-t
-        from-white
-        via-gray-100
-        to-[#e3e3e3]
-        dark:from-gray-900
-        dark:via-[#161b20]
-        dark:to-[#1d232a]
-        transition-colors duration-500
+        bg-background
       "
     >
       <div className="max-w-[1440px] mx-auto">
@@ -144,7 +137,7 @@ const FeedbackSection = () => {
             </div>
 
             {/* Highlights */}
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-700 dark:to-gray-900 rounded-2xl shadow-md p-6">
+            <div className="bg-gradient-to-r from-gray-50 to-red-50 dark:from-gray-700 dark:to-gray-900 rounded-2xl shadow-md p-6">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">Recent Highlights</h3>
               <div className="space-y-4">
                 {highlights.map((quote, i) => (

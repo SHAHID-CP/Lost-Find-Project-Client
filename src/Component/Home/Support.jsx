@@ -113,7 +113,7 @@ export default function Support() {
         </div>
 
         {/* Safety Tips */}
-        <div className="bg-yellow-50 dark:bg-primary/20 border border-yellow-200 dark:border-yellow-700 rounded-lg p-6 mb-12">
+        <div className="bg-white dark:bg-gray-800 border border-red-200 dark:border-red-700 rounded-lg p-6 mb-12">
           <h3 className="text-lg font-semibold text-gray-400 dark:text-gray-400 mb-3">
             🛡️ Safety First
           </h3>

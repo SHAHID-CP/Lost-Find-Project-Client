@@ -46,12 +46,12 @@ export default function AboutUs() {
 
       {/* Mission */}
       <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-800 
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 border border-gray-200 dark:border-gray-800 
                         hover:scale-105 hover:border-primary transform transition duration-300 ease-out">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
             Our Mission
           </h2>
-          <p className="text-gray-700 dark:text-gray-400 text-center text-lg leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-400  text-center text-lg leading-relaxed">
             To create a safe and efficient platform where people can report lost items and help others find what they've
             lost. We believe in the power of community and the joy that comes from reuniting people with their cherished
             belongings.

@@ -79,7 +79,7 @@ const MyItem = () => {
   };
 
   return (
-    <div className='mb-24 px-4 md:px-12'>
+    <div className='mb-24 px-4 md:px-12 max-w-7xl mx-auto'>
       <title>My Item</title>
       <h2 className="text-4xl md:text-5xl font-extrabold text-center my-12 dark:text-white">
         Manage My Items

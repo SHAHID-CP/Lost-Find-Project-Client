@@ -7,9 +7,6 @@
 ## 🔗 Live URL
 [👉 View the Live Website](https://beautiful-marigold-d08b9c.netlify.app/)
 
-## 📸 Screenshot 
-![WhereIsIt Screenshot](./screenshot.png)
-
 ## 🛠️ Main Technologies Used
 - React  
 - Vite  
